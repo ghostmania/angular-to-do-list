@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myUl">
+<head>
+    <meta charset="UTF-8">
+    <title>To Do List using Angular 1.x</title>
+    <link href="src/style.css" type="text/css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+    <script src="src/main.controller.js"></script>
+</head>
+<body>
+    <div id="container" ng-controller="MainController">
+        <label>Type your wishes:
+            <input type="text" ng-model="input">
+        </label>
+        <button onclick="">ADD</button>
+        {{input}}
+        <ul class="list"></ul>
+        <span class="pages">
+            <button ng-click=""><</button>
+            <button>1</button>
+            <button onclick="next()">></button>
+        </span>
+    </div>
+</body>
+</html>
+
+<!--
+li in lis (ng-repeat)
+scope lis
+ng-click -> push {{input}} into [lis]
+{{input}}->clear
+-->
