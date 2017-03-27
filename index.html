@@ -12,21 +12,19 @@
         <label>Type your wishes:
             <input type="text" ng-model="input">
         </label>
-        <button onclick="">ADD</button>
-        {{input}}
-        <ul class="list"></ul>
+        <button ng-click="addItem()">ADD</button>
+        <ul class="list" ng-repeat="li in lis">
+            <li>{{li.value}}</li>
+        </ul>
         <span class="pages">
-            <button ng-click=""><</button>
+            <button ng-click="">
+                <
+            </button>
             <button>1</button>
-            <button onclick="next()">></button>
+            <button>
+                >
+            </button>
         </span>
     </div>
 </body>
 </html>
-
-<!--
-li in lis (ng-repeat)
-scope lis
-ng-click -> push {{input}} into [lis]
-{{input}}->clear
--->
