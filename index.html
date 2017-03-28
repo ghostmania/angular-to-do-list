@@ -21,11 +21,11 @@
             </li>
         </ul>
         <section class="pages">
-            <button ng-click="">
+            <button ng-click="goToPage(currentPage - 1)">
                 <
             </button>
-            <button ng-repeat="page in pages">{{page}}</button>
-            <button>
+            <button ng-repeat="page in pages" ng-click="goToPage(page)">{{page}}</button>
+            <button ng-click="goToPage(currentPage + 1)">
                 >
             </button>
         </section>

@@ -24,5 +24,10 @@ angular.
         $scope.showOnCurrentPage = function (index) { // show element when needed
             return (($scope.currentPage*3 - 3) <= index && index < ($scope.currentPage*3))
         };
+        $scope.goToPage = function (page) { // change page function
+            if (page >= 1 && page <= $scope.pages.length) {
+                $scope.currentPage = page;
+            }
+        }
     }//end controller
 ]);
