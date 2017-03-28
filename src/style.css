@@ -3,6 +3,9 @@
     text-align: center;
     max-width: 450px;
 }
-.pages{
+.pages, .statuses{
     margin-top: 10px;
+}
+.counter{
+    margin: 5px;
 }

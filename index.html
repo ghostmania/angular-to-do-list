@@ -9,17 +9,26 @@
 </head>
 <body>
     <div id="container" ng-controller="MainController">
-        <label>Type your wishes:
-            <input type="text" ng-model="input" ng-keypress="addOnEnter($event)">
-        </label>
-        <button ng-click="addItem()">ADD</button>
-        <ul class="list" ng-repeat="li in lis">
-            <li ng-show="showOnCurrentPage($index)">
-                <input type="checkbox">
-                <span>{{li.value}}</span>
-                <button ng-click="removeLi($index)">x</button>
-            </li>
-        </ul>
+        <section>
+            <label>Type your wishes:
+                <input type="text" ng-model="input" ng-keypress="addOnEnter($event)">
+            </label>
+            <button ng-click="addItem()">ADD</button>
+        </section>
+        <section>
+            <ul class="list" ng-repeat="li in lis">
+                <li ng-show="showOnCurrentPage($index)">
+                    <input type="checkbox" ng-change="changeStatus()" ng-model="li.checked">
+                    <span>{{li.value}}</span>
+                    <button ng-click="removeLi($index)">x</button>
+                </li>
+            </ul>
+        </section>
+        <section class="statuses">
+            <button>All</button><span class="counter">{{lis.length}}</span>
+            <button>Active</button><span class="counter">{{(lis | filter: {checked: false}).length }}</span>
+            <button>Completed</button><span class="counter">{{(lis | filter: {checked: true}).length }}</span>
+        </section>
         <section class="pages">
             <button ng-click="goToPage(currentPage - 1)">
                 <

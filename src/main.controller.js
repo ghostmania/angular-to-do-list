@@ -8,7 +8,8 @@ angular.
         $scope.addItem = function () { // Add input value to lis
             if ($scope.input.length){ // check for empty input value
                 $scope.lis.push({
-                    value: $scope.input
+                    value: $scope.input,
+                    checked: false
                 });
                 if (Math.ceil($scope.lis.length / 3) > $scope.pages.length){ // create pages when needed
                     $scope.pages.push($scope.pages.length + 1)
@@ -37,6 +38,9 @@ angular.
                     $scope.currentPage = $scope.pages.length;
                 }
             }
+        }
+        $scope.changeStatus = function () {
+            console.log($scope.lis);
         }
     }//end controller
 ]);
