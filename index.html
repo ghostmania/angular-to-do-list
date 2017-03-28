@@ -17,7 +17,7 @@
             <li ng-show="showOnCurrentPage($index)">
                 <input type="checkbox">
                 <span>{{li.value}}</span>
-                <button>x</button>
+                <button ng-click="removeLi($index)">x</button>
             </li>
         </ul>
         <section class="pages">

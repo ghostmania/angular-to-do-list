@@ -28,6 +28,15 @@ angular.
             if (page >= 1 && page <= $scope.pages.length) {
                 $scope.currentPage = page;
             }
+        };
+        $scope.removeLi = function (index) { // removeLi function
+            $scope.lis.splice(index, 1);
+            if (Math.ceil($scope.lis.length / 3) < $scope.pages.length && $scope.pages.length > 1) {
+                $scope.pages.splice($scope.pages.length - 1, 1);
+                if ($scope.currentPage > $scope.pages.length) { // if removed last page, redirected to previous
+                    $scope.currentPage = $scope.pages.length;
+                }
+            }
         }
     }//end controller
 ]);
