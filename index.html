@@ -16,24 +16,27 @@
             <button ng-click="addItem()">ADD</button>
         </section>
         <section>
-            <ul class="list" ng-repeat="li in lis">
+            <ul class="list" ng-repeat="li in filteredWishes track by $index">
                 <li ng-show="showOnCurrentPage($index)">
-                    <input type="checkbox" ng-change="changeStatus()" ng-model="li.checked">
-                    <span>{{li.value}}</span>
+                    <input type="checkbox" ng-model="li.checked" ng-change="checkUncheck($index, li)">
+                    <span ng-class="{completed: li.checked}">{{li.value}}</span>
                     <button ng-click="removeLi($index)">x</button>
                 </li>
             </ul>
         </section>
         <section class="statuses">
-            <button>All</button><span class="counter">{{lis.length}}</span>
-            <button>Active</button><span class="counter">{{(lis | filter: {checked: false}).length }}</span>
-            <button>Completed</button><span class="counter">{{(lis | filter: {checked: true}).length }}</span>
+            <button ng-click="showWishes('all')">All</button>
+            <span class="counter">{{wishes.length}}</span>
+            <button ng-click="showWishes(false)">Active</button>
+            <span class="counter">{{(wishes | filter: {checked: false}).length }}</span>
+            <button ng-click="showWishes(true)">Completed</button>
+            <span class="counter">{{(wishes | filter: {checked: true}).length }}</span>
         </section>
         <section class="pages">
             <button ng-click="goToPage(currentPage - 1)">
                 <
             </button>
-            <button ng-repeat="page in pages" ng-click="goToPage(page)">{{page}}</button>
+            <button ng-repeat="page in pages track by $index" ng-click="goToPage(page)">{{page}}</button>
             <button ng-click="goToPage(currentPage + 1)">
                 >
             </button>
