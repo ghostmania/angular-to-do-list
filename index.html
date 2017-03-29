@@ -20,7 +20,7 @@
                 <li ng-show="showOnCurrentPage($index)">
                     <input type="checkbox" ng-model="li.checked" ng-change="checkUncheck($index, li)">
                     <span ng-class="{completed: li.checked}">{{li.value}}</span>
-                    <button ng-click="removeLi($index)">x</button>
+                    <button ng-click="removeLi($index, li)">x</button>
                 </li>
             </ul>
         </section>

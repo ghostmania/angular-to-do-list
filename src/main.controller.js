@@ -38,9 +38,12 @@ angular.
                 $scope.currentPage = page;
             }
         };
-        $scope.removeLi = function (index) { // removeLi function
-            $scope.wishes.splice(index, 1);
-            $scope.filteredWishes.splice(index, 1);
+        $scope.removeLi = function (index, liToDelete) { // removeLi function
+            var neededLi = $scope.wishes.find(function (wish) { // find li in wishes
+                return wish.value == liToDelete.value
+            });
+            $scope.wishes.splice($scope.wishes.indexOf(neededLi), 1); // remove li form wishes
+            $scope.filteredWishes.splice(index, 1); // remove li from filteredwishes
             if (Math.ceil($scope.filteredWishes.length / 3) < $scope.pages.length && $scope.pages.length > 1){
                 $scope.pages.splice($scope.pages.length - 1, 1);
                 if ($scope.currentPage > $scope.pages.length) { // if removed last page, redirected to previous
@@ -68,9 +71,7 @@ angular.
             var xx = $scope.wishes.find(function (wish) {
                 return wish.value == li.value
             });
-            console.log(xx);
             xx.checked = li.checked;
-            console.log(xx);
             if ($scope.currentTab !== 'all') {
                 $scope.filteredWishes.splice(index, 1);
                 if (Math.ceil($scope.filteredWishes.length / 3) < $scope.pages.length && $scope.pages.length > 1) {
