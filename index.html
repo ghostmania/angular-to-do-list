@@ -6,6 +6,8 @@
     <link href="src/style.css" type="text/css" rel="stylesheet" />
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
     <script src="src/main.controller.js"></script>
+    <script src="src/edit.directive.js"></script>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
 </head>
 <body>
     <div id="container" ng-controller="MainController">
@@ -19,7 +21,7 @@
             <ul class="list" ng-repeat="li in filteredWishes track by $index">
                 <li ng-show="showOnCurrentPage($index)">
                     <input type="checkbox" ng-model="li.checked" ng-change="checkUncheck($index, li)">
-                    <span ng-class="{completed: li.checked}">{{li.value}}</span>
+                    <span ng-class="{completed: li.checked}" edit>{{li.value}}</span>
                     <button ng-click="removeLi($index, li)">x</button>
                 </li>
             </ul>
