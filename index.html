@@ -4,30 +4,30 @@
     <meta charset="UTF-8">
     <title>To Do List using Angular 1.x</title>
     <link href="src/style.css" type="text/css" rel="stylesheet" />
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+    <script src="src/angular.min.js"></script>
     <script src="src/main.controller.js"></script>
     <script src="src/edit.directive.js"></script>
-    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
 </head>
 <body>
     <div id="container" ng-controller="MainController">
         <section>
             <label>Type your wishes:
-                <input type="text" ng-model="input" ng-keypress="addOnEnter($event)">
+                <input autofocus id="wishInput" type="text" ng-model="input" ng-keypress="addOnEnter($event)">
             </label>
             <button ng-click="addItem()">ADD</button>
         </section>
         <section>
-            <ul class="list" ng-repeat="li in filteredWishes track by $index">
-                <li ng-show="showOnCurrentPage($index)">
-                    <input type="checkbox" ng-model="li.checked" ng-change="checkUncheck($index, li)">
-                    <span ng-class="{completed: li.checked}" edit>{{li.value}}</span>
+            filteredWishes: {{wishes}}
+            <ul class="list" ng-repeat="li in wishes | filter: {checked: status} track by $index " >
+                <li ng-show="showOnCurrentPage($index)" >
+                    <input type="checkbox" ng-model="li.checked" ng-change="checkUncheck($index)">
+                    <span ng-class="{completed: li.checked}" edit wish="li" >{{li.value}}</span>
                     <button ng-click="removeLi($index, li)">x</button>
                 </li>
             </ul>
         </section>
         <section class="statuses">
-            <button ng-click="showWishes('all')">All</button>
+            <button ng-click="showWishes('')">All</button>
             <span class="counter">{{wishes.length}}</span>
             <button ng-click="showWishes(false)">Active</button>
             <span class="counter">{{(wishes | filter: {checked: false}).length }}</span>
