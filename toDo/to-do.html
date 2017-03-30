@@ -1,0 +1,9 @@
+<ul class="list" >
+    <li ng-show="$ctrl.showOnCurrentPage($index)" ng-repeat="li in $ctrl.wishes | filter: {checked: $ctrl.status} track by $index " ng-transclude>
+        <input type="checkbox" ng-model="li.checked" ng-change="$ctrl.checkUncheck($index)">
+        <span ng-class="{completed: li.checked}" edit wish="li" >{{li.value}}</span>
+        <button ng-click="$ctrl.removeLi($index, li)">
+         <img src="img/1490880524_button_cancel.png" alt="add">
+        </button>
+    </li>
+</ul>
