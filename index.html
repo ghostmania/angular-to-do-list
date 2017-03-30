@@ -8,6 +8,7 @@
     <script src="src/main.controller.js"></script>
     <script src="src/edit.directive.js"></script>
     <script src="toDo/toDo.component.js"></script>
+    <script src="toDo/statusButtons.component.js"></script>
 </head>
 <body>
     <div id="container" ng-controller="MainController">
@@ -23,12 +24,13 @@
                 <to-do wishes="wishes" current-page="currentPage" status="status" pages="pages"></to-do>
         </section>
         <section class="statuses">
-            <button ng-click="showWishes('')">All</button>
-            <span class="counter">{{wishes.length}}</span>
-            <button ng-click="showWishes(false)">Active</button>
-            <span class="counter">{{(wishes | filter: {checked: false}).length }}</span>
-            <button ng-click="showWishes(true)">Completed</button>
-            <span class="counter">{{(wishes | filter: {checked: true}).length }}</span>
+            <status-buttons wishes="wishes" current-page="currentPage" status="status" pages="pages"></status-buttons>
+            <!--<button ng-click="showWishes('')">All</button>-->
+            <!--<span class="counter">{{wishes.length}}</span>-->
+            <!--<button ng-click="showWishes(false)">Active</button>-->
+            <!--<span class="counter">{{(wishes | filter: {checked: false}).length }}</span>-->
+            <!--<button ng-click="showWishes(true)">Completed</button>-->
+            <!--<span class="counter">{{(wishes | filter: {checked: true}).length }}</span>-->
         </section>
         <section class="pages">
             <button ng-click="goToPage(currentPage - 1)">

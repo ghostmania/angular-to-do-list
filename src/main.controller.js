@@ -31,14 +31,6 @@ angular.
                 $scope.currentPage = page;
             }
         };
-        $scope.showWishes = function (f) {
-            $scope.currentPage = 1;
-            $scope.status = f;
-            $scope.pages = [1];
-            var liToShow = $filter('filter')($scope.wishes, { checked: $scope.status });
-            for (var i=2; i <= (Math.ceil(liToShow.length / 3)); i++) { // recreate pages
-                $scope.pages.push(i)
-            }
-        };
+
     }//end controller
 ]);

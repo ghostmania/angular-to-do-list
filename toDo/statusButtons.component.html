@@ -1,0 +1,6 @@
+<button ng-click="$ctrl.showWishes('')">All</button>
+<span class="counter">{{$ctrl.wishes.length}}</span>
+<button ng-click="$ctrl.showWishes(false)">Active</button>
+<span class="counter">{{($ctrl.wishes | filter: {checked: false}).length }}</span>
+<button ng-click="$ctrl.showWishes(true)">Completed</button>
+<span class="counter">{{($ctrl.wishes | filter: {checked: true}).length }}</span>

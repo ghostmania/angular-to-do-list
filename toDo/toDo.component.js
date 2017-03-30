@@ -1,8 +1,7 @@
 angular.
     module("myUl").
     component('toDo',{
-        templateUrl: './toDo/to-do.html',
-        transclude: true,
+        templateUrl: './toDo/toDo.component.html',
         controller: toDoCTRL,
         bindings: {
             wishes: '=',
