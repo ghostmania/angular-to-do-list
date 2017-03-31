@@ -1,0 +1,7 @@
+<button ng-click="$ctrl.goToPage($ctrl.currentPage - 1)">
+    <img src="img/1490880550_1leftarrow.png" alt="back">
+</button>
+<button ng-repeat="page in $ctrl.pages track by $index" ng-click="$ctrl.goToPage(page)">{{page}}</button>
+<button ng-click="$ctrl.goToPage($ctrl.currentPage + 1)">
+    <img src="img/1490880556_1rightarrow.png" alt="back">
+</button>

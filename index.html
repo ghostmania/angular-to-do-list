@@ -9,37 +9,22 @@
     <script src="src/edit.directive.js"></script>
     <script src="toDo/toDo.component.js"></script>
     <script src="toDo/statusButtons.component.js"></script>
+    <script src="toDo/pages.component.js"></script>
+    <script src="toDo/createTodo.component.js"></script>
 </head>
 <body>
     <div id="container" ng-controller="MainController">
         <section>
-            <label>Type your wishes:
-                <input autofocus id="wishInput" type="text" ng-model="input" ng-keypress="addOnEnter($event)">
-            </label>
-            <button ng-click="addItem()">
-                <img src="img/1490880543_edit_add.png" alt="add">
-            </button>
+            <create-todo wishes="wishes" status="status" pages="pages" input="input"></create-todo>
         </section>
         <section>
                 <to-do wishes="wishes" current-page="currentPage" status="status" pages="pages"></to-do>
         </section>
         <section class="statuses">
             <status-buttons wishes="wishes" current-page="currentPage" status="status" pages="pages"></status-buttons>
-            <!--<button ng-click="showWishes('')">All</button>-->
-            <!--<span class="counter">{{wishes.length}}</span>-->
-            <!--<button ng-click="showWishes(false)">Active</button>-->
-            <!--<span class="counter">{{(wishes | filter: {checked: false}).length }}</span>-->
-            <!--<button ng-click="showWishes(true)">Completed</button>-->
-            <!--<span class="counter">{{(wishes | filter: {checked: true}).length }}</span>-->
         </section>
         <section class="pages">
-            <button ng-click="goToPage(currentPage - 1)">
-                <img src="img/1490880550_1leftarrow.png" alt="back">
-            </button>
-            <button ng-repeat="page in pages track by $index" ng-click="goToPage(page)">{{page}}</button>
-            <button ng-click="goToPage(currentPage + 1)">
-                <img src="img/1490880556_1rightarrow.png" alt="back">
-            </button>
+            <pages pages="pages" current-page="currentPage"></pages>
         </section>
     </div>
 </body>
