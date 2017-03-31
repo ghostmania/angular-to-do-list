@@ -11,22 +11,17 @@
     <script src="toDo/statusButtons.component.js"></script>
     <script src="toDo/pages.component.js"></script>
     <script src="toDo/createTodo.component.js"></script>
+    <script src="toDo/createList.component.js"></script>
+    <script src="toDo/list.component.js"></script>
 </head>
 <body>
     <div id="container" ng-controller="MainController">
         <section>
-            <create-todo wishes="wishes" status="status" pages="pages" input="input"></create-todo>
+            <create-list wish-lists="wishLists"></create-list>
         </section>
-        <section>
-                <to-do wishes="wishes" current-page="currentPage" status="status" pages="pages"></to-do>
-        </section>
-        <section class="statuses">
-            <status-buttons wishes="wishes" current-page="currentPage" status="status" pages="pages"></status-buttons>
-        </section>
-        <section class="pages">
-            <pages pages="pages" current-page="currentPage"></pages>
-        </section>
+        <list-component wish-lists="wishLists"></list-component>
     </div>
+    <!--{{wishLists}}-->
 </body>
 </html>
 

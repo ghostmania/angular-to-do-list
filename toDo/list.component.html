@@ -1,0 +1,18 @@
+<ul>
+    <li ng-repeat="list in $ctrl.wishLists track by $index" >
+        {{list.name}}
+        <section>
+            <create-todo wishes="wishes" status="status" pages="pages" input="input"></create-todo>
+        </section>
+        <section>
+            <to-do wishes="wishes" current-page="currentPage" status="status" pages="pages"></to-do>
+        </section>
+        <section class="statuses">
+            <status-buttons wishes="wishes" current-page="currentPage" status="status" pages="pages"></status-buttons>
+        </section>
+        <section class="pages">
+            <pages pages="pages" current-page="currentPage"></pages>
+        </section>
+
+    </li>
+</ul>

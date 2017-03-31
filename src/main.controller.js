@@ -6,5 +6,6 @@ angular.
         $scope.pages = [1];
         $scope.currentPage = 1;
         $scope.status = "";
+        $scope.wishLists = [];
     }
 ]);
