@@ -12,7 +12,7 @@
 .completed{
     text-decoration: line-through;
 }
-.list{
+.list, .wishesList{
     list-style-type: none;
 }
 button{

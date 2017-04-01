@@ -16,11 +16,19 @@ function createList() {
     var ctrl = this;
     ctrl.listLabel = "";
     ctrl.createList = function () {
-        console.log(ctrl.listLabel);
-        ctrl.wishLists.push({
-            name: ctrl.listLabel,
-            wishes: []
-        })
-    }
+        if (ctrl.listLabel.length) { // if input not empty
+            ctrl.wishLists.push({
+                name: ctrl.listLabel,
+                wishes: []
+            });
+            ctrl.listLabel = "";
+        }
+        document.getElementById('listInput').focus();
+    };
+    ctrl.createListOnEnter = function (e) {
+        if (e.keyCode == 13) {
+            ctrl.createList()
+        }
+    };
 
 }//end CTRLfunction
