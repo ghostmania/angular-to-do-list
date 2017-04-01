@@ -15,7 +15,6 @@ component('createList',{
 function createList() {
     var ctrl = this;
     ctrl.listLabel = "";
-    // console.log(ctrl.pages);
     ctrl.createList = function () { // create list START
         if (ctrl.listLabel.length) { // if input not empty
             ctrl.wishLists.push({
@@ -23,7 +22,7 @@ function createList() {
                 wishes: []
             });
             ctrl.pages.push({
-                page: [1]
+                pagesForWishList: 1 // create first page in wish list
             });
 
             ctrl.listLabel = "";
@@ -35,7 +34,5 @@ function createList() {
             ctrl.createList()
         }
     };
-    // console.log(ctrl.pages);
-    // console.log(ctrl.wishLists);
 
 }//end CTRLfunction

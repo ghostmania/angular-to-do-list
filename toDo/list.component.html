@@ -11,7 +11,7 @@
             <status-buttons wishes="wishes" current-page="currentPage" status="status" pages="pages"></status-buttons>
         </section>
         <section class="pages">
-            <pages pages="pages" current-page="currentPage"></pages>
+            <pages pages="pages" current-page="currentPage" ng-repeat="pages in $ctrl.pages track by index"></pages>
         </section>
 
     </li>
